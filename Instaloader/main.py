@@ -7,7 +7,7 @@ async def main(_, msg):
         return msg.reply(error)
 
     status = await msg.reply('Please Wait...', quote=True)
-    reply = msg.text.replace('ddinstagram.com');
+    reply = msg.text.replace('instagram.com','ddinstagram.com');
     msg.reply(reply)
     
 
