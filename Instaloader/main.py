@@ -8,11 +8,10 @@ async def main(_, msg):
 
     status = await msg.reply('Please Wait...', quote=True)
     reply = msg.text.replace('instagram.com','ddinstagram.com');
-    msg.reply(reply)
+    await msg.reply("[.]("+reply+")",qoute=True)
     
 
 
 error = """
-Please send me a valid instagram post link.
-It must be like one of the given below
+لینک اشتباه ⚠️ لطفا لینک درست از اینستاگرام ارسال کنید
 """
