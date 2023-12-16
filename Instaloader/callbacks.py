@@ -43,7 +43,7 @@ async def _callbacks(bot: Client, callback_query: CallbackQuery):
         )
     elif query == "check_must_join":
         try:
-            await bot.get_chat_member(MUST_JOIN, msg.from_user.id)
+            await bot.get_chat_member(MUST_JOIN, callback_query.from_user.id)
         except UserNotParticipant:
             if MUST_JOIN.isalpha():
                 link = "https://t.me/" + MUST_JOIN
