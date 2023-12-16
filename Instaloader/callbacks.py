@@ -42,8 +42,18 @@ async def _callbacks(bot: Client, callback_query: CallbackQuery):
             reply_markup=InlineKeyboardMarkup(Data.home_buttons),
         )
     elif query == "check_must_join":
+        chat_id = callback_query.from_user.id
+        message_id = callback_query.message.message_id
         try:
-            await bot.get_chat_member(MUST_JOIN, callback_query.from_user.id)
+            await bot.get_chat_member(MUST_JOIN, chat_id)
+            user = await bot.get_me()
+            mention = user["mention"]
+            await bot.edit_message_text(
+                chat_id=chat_id,
+                message_id=message_id,
+                text=Data.START.format(callback_query.from_user.mention, mention),
+                reply_markup=InlineKeyboardMarkup(Data.buttons),
+            )
         except UserNotParticipant:
             if MUST_JOIN.isalpha():
                 link = "https://t.me/" + MUST_JOIN
@@ -51,8 +61,6 @@ async def _callbacks(bot: Client, callback_query: CallbackQuery):
                 chat_info = await bot.get_chat(MUST_JOIN)
                 link = chat_info.invite_link
             try:
-                chat_id = callback_query.from_user.id
-                message_id = callback_query.message.message_id
                 await bot.edit_message_text(
                     chat_id=chat_id,
                     message_id=message_id,
