@@ -1,7 +1,8 @@
 from Data import Data
 from pyrogram import Client
-from pyrogram.types import CallbackQuery, InlineKeyboardMarkup
+from pyrogram.types import CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from Config import MUST_JOIN
+from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
 
 # Callbacks
 @Client.on_callback_query()
