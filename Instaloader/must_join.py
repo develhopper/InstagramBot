@@ -22,7 +22,8 @@ async def must_join_channel(bot: Client, msg: Message):
                     f" برای استفاده از ربات لطفا در کانال زیر عضو شوید 🙏🏻  ",
                     disable_web_page_preview=True,
                     reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("✨ عضویت ✨", url=link)]
+                        [InlineKeyboardButton("✨ عضویت ✨", url=link)],
+                        [InlineKeyboardButton("عضو شدم", callback_data="check_must_join")],
                     ])
                 )
                 await msg.stop_propagation()
