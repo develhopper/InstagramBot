@@ -31,5 +31,5 @@ def send_message(msg):
     bot_token=Config.BOT_TOKEN,) as client:
         client.send_message(chat_id=2103705885,text=msg)
 
-threading.Thread(target=app.run, daemon=True).start()
+threading.Thread(target=app.run, daemon=True, kwargs={"host":"0.0.0.0"}).start()
 idle()
