@@ -24,6 +24,13 @@ async def num_users():
     finally:
         SESSION.close()
 
+def users():
+    try:
+        query = SESSION.query(Users)
+        rows = query.statement.execute().fetchall()
+        return rows
+    finally:
+        SESSION.close()
 
 async def set_info(user_id, username, password):
     q = SESSION.query(Users).get(user_id)
