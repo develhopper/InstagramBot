@@ -4,14 +4,11 @@ from pyrogram.types import InlineKeyboardButton
 class Data:
     # Start Message
     START = """
-Hey {}
-
-Welcome to {}
-
-I can download profile pictures, videos, images and reels from instagram along with post caption.
-You can also authorize me to download private posts.
-
-Use below buttons to learn more.
+سلام {}
+ به اینستادانلودر پارسیس خوش آمدید 🙏🏻
+من میتونم عکس پروفایل ، ویدیو ، عکس و ریلز های ایسنتاگرام رو همراه با کپشن براتون دانلود کنم 😎
+تو حتی میتونی به من اجازه بدی عکس های اکانت های پرایوت رو هم دانلود کنم .
+از دکمه های زیر برای اطلاعات بیشتر استفاده کن 👇🏻
     """
 
     # Home Button
@@ -29,16 +26,17 @@ Use below buttons to learn more.
 
     # Help Message
     HELP = """
-1) **Images, Videos and Reels**
-Send the link here to get the post contents including caption.
+ℹ️ چجوری استفاده کنیم ؟
 
-**Note** : Stories and IGTV are not supported.
+✅ کافیه لینک پست / ریلز/ پروفایل رو برام بفرستی تا با کپشن برات دانلودش کنم .
+⚠️ متاسفانه استوری و IGTV  رو نمیتونم دانلود کنم.
 
 """
 
     # About Message
-    ABOUT = """
-**About This Bot** 
+    ABOUT = """درباره این بات 
 
-A telegram bot to download instagram content by @StarkBots
+این بات مختص به تیم پارسیس میباشد .
+اینستاگرام ما : https://bit.ly/Parsisinsta
+کانال ما : @soheylschannel
     """
