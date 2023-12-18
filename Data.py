@@ -13,14 +13,14 @@ class Data:
 
     # Home Button
     home_buttons = [
-        [InlineKeyboardButton(text="🏠 Return Home 🏠", callback_data="home")]
+        [InlineKeyboardButton(text="🏠 بازگشت 🏠", callback_data="home")]
     ]
 
     # Rest Buttons
     buttons = [
         [
-            InlineKeyboardButton("How to Use ❔", callback_data="help"),
-            InlineKeyboardButton("🎪 About 🎪", callback_data="about")
+            InlineKeyboardButton("راهنمای استفاده ❔", callback_data="help"),
+            InlineKeyboardButton("🎪 درباره 🎪", callback_data="about")
         ],
     ]
 
