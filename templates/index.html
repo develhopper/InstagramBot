@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .form_container {
+  width: 280px;
+  margin: 0 auto;
+  background-color: #fcfcfc;
+  padding: 20px 50px 40px;
+  box-shadow: 1px 4px 10px 1px #aaa;
+  font-family: sans-serif;
+}
+
+.form_container * {
+    box-sizing: border-box;
+}
+
+.form_container h2{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form_container input {
+  margin-bottom: 15px;
+}
+
+.form_container input[type=text],[type=password] {
+  display: block;
+  height: 32px;
+  padding: 6px 16px;
+  width: 100%;
+  border: none;
+  background-color: #f3f3f3;
+}
+
+.form_container textarea {
+  margin-bottom: 15px;
+}
+
+.form_container textarea {
+  display: block;
+  height: 50px;
+  padding: 6px 16px;
+  width: 100%;
+  border: none;
+  background-color: #f3f3f3;
+}
+
+.form_container label {
+  color: #777;
+  font-size: 0.8em;
+}
+
+.form_container input[type=checkbox] {
+  float: left;
+}
+
+.form_container input:not(:checked) + #feedback-phone {
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.form_container #feedback-phone {
+  transition: .3s;
+}
+
+.form_container button[type=submit] {
+  display: block;
+  margin: 20px auto 0;
+  width: 150px;
+  height: 40px;
+  border-radius: 25px;
+  border: none;
+  color: #eee;
+  font-weight: 700;
+  box-shadow: 1px 4px 10px 1px #aaa;
+  
+  background: #207cca; /* Old browsers */
+  background: -moz-linear-gradient(left, #207cca 0%, #9f58a3 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #207cca 0%,#9f58a3 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #207cca 0%,#9f58a3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207cca', endColorstr='#9f58a3',GradientType=1 ); /* IE6-9 */
+}
+</style>
+<body>
+    <div class="form_container">
+        <h2 class="header">Send Message</h2>
+        {% if error %}
+            <p style="color:red">{{error}}</p>
+        {% endif %}
+        <div>
+          <form method="POST">
+            <textarea name="message" placeholder="Text" required></textarea>
+            <input type="password" name="password" placeholder="Password" required></input>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+</body>
+</html>
