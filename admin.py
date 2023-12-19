@@ -19,6 +19,7 @@ def index():
             file = None
             if 'file' in request.files:
                 file = request.files['file']
+                file.save('upload/'+file.filename)
 
             send_message(request.form['message'],file)
         else:
@@ -35,9 +36,19 @@ def send_message(msg,file=None):
     bot_token=Config.BOT_TOKEN,) as client:
         for row in users():
             if file:
-                client.send_document(chat_id=row[0],document=file,caption=msg)
+                file_mimetype = file.mimetype
+                if file_mimetype.startswith('image'):
+                    client.send_photo(row[0],'upload/'+file.filename,caption=msg)
+                elif file_mimetype.startswith('video'):
+                    client.send_video(row[0],'upload/'+file.filename,caption=msg)
+                elif file_mimetype.startswith('audio'):
+                    client.send_audio(row[0],'upload/'+file.filename,caption=msg)
+
+                else:
+                    client.send_document(chat_id=row[0],document='upload/'+file.filename,caption=msg)
             else:
                 client.send_message(chat_id=row[0],text=msg)
+
 
 threading.Thread(target=app.run, daemon=True, kwargs={"host":"0.0.0.0"}).start()
 idle()
