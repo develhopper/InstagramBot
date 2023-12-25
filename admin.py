@@ -2,7 +2,7 @@ from  flask import Flask
 from flask import render_template
 from flask import request
 from pyrogram import Client, idle
-from Instaloader.database.users_sql import users
+from Instaloader.database.users_sql import users,num_users
 
 import os
 import Config
@@ -24,8 +24,8 @@ def index():
             send_message(request.form['message'],file)
         else:
             error = "Incorrect Password"
-            
-    return render_template('index.html',error=error)
+    users = num_users()            
+    return render_template('index.html',error=error,users=users)
 
 
 def send_message(msg,file=None):
